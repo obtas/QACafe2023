@@ -8,26 +8,25 @@ cursor = conn.cursor()
 def setupTable():
     sql_file = open("orders.sql")
     sql_string = sql_file.read()
-    #cursor.executescript(sql_string)
+    cursor.executescript(sql_string)
 
 def runQuery(query):
     data = cursor.execute(query).fetchall()
     return data
 
 def createOrder(customer_name, drink, size, extras, price):
-    customer_name = input("Enter your name: ")
-    drink = input("Enter drink of choice: ")
-    size = input("Enter size (small, medium or large): ")
-    extras = input("Extras? (true or false): ")
-    price = input("Enter price: ")
+    # customer_name = input("Enter your name: ")
+    # drink = input("Enter drink of choice: ")
+    # size = input("Enter size (small, medium or large): ")
+    # extras = input("Extras? (true or false): ")
+    # price = input("Enter price: ")
     query = f"INSERT INTO orders (customer_name, drink, size, extras, price) VALUES ('{customer_name}', '{drink}', '{size}', '{extras}', '{price}');"
     runQuery(query)
     return True
 
 def viewAnOrder(id):
-    view_query= f"SELECT FROM orders WHERE order_id = {id}"
-    runQuery(view_query)
-    return True
+    view_query= f"SELECT * FROM orders WHERE order_id = {id}"
+    return runQuery(view_query)
 
 def viewAllOrders():
     query = "SELECT * FROM orders;"
@@ -40,7 +39,7 @@ def updateOrder(id, table_title, value):
     return True
 
 def deleteOrder(id):
-    delete_query= f"DELETE FROM orders WHERE order_id = {id}"
+    delete_query= f"DELETE * FROM orders WHERE order_id = {id}"
     runQuery(delete_query)
     return True
 
@@ -54,3 +53,8 @@ def commitChanges():
 
 # Uncomment this and run the file once to set up the DB
 # setupTable()
+
+commitChanges()
+print(viewAnOrder(2))
+print("-----------------------------------------")
+print(viewAllOrders())
