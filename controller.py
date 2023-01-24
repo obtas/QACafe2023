@@ -57,10 +57,12 @@ def updateAnOrder():
 
 def deleteAnOrder():
     id = input("Please enter order ID you would like to delete: ")
+    print("Order deleted :)")
     return service.deleteOrder(id)
 
 def deleteAllOrders():
     return service.deleteAllOrders()
+
 
 
 menu = """
