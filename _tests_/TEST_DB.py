@@ -20,7 +20,7 @@ def createOrder(customer_name, drink, size, extras, price):
     return True
 
 def viewAnOrder(id):
-    view_query= f"SELECT * FROM orders WHERE order_id = {id}"
+    view_query= f"SELECT FROM orders WHERE order_id = {id}"
     return runQuery(view_query)
 
 def viewAllOrders():

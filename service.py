@@ -10,38 +10,43 @@
 import db
 
 def createOrder(customer_name, drink, size, extras, price):
-    # customer_name = input("Enter your name: ")
-    # drink = input("Enter drink of choice: ")
-    # size = input("Enter size (small, medium or large): ")
-    # extras = input("Extras? (true or false): ")
-    # price = input("Enter price: ")
-    query = f"INSERT INTO orders (customer_name, drink, size, extras, price) VALUES ('{customer_name}', '{drink}', '{size}', '{extras}', '{price}');"
-    db.runQuery(query)
-    return True
+    data = db.createOrder()
+    return data
+    # query = f"INSERT INTO orders (customer_name, drink, size, extras, price) VALUES ('{customer_name}', '{drink}', '{size}', '{extras}', '{price}');"
+    # db.runQuery(query)
+    # return True
 
 def getOneOrder(id):
-    view_query= f"SELECT * FROM orders WHERE order_id = {id}"
-    data = db.runQuery(view_query)
-    return data 
+    data = db.viewAnOrder(id)
+    return data
+    # view_query= f"SELECT * FROM orders WHERE order_id = {id}"
+    # data = db.runQuery(view_query)
+    # return data 
 
 def getAllOrders():
     data = db.viewAllOrders()
     return data
 
 def updateOrder(id, table_title, value):
-    update_query = f"UPDATE orders SET {table_title} = '{value}' WHERE order_id = '{id}'"
-    db.runQuery(update_query)
-    return True
+    data = db.updateOrder()
+    return data
+    # update_query = f"UPDATE orders SET {table_title} = '{value}' WHERE order_id = '{id}'"
+    # db.runQuery(update_query)
+    # return True
 
 def deleteOrder(id):
-    delete_query= f"DELETE FROM orders WHERE order_id = {id}"
-    db.runQuery(delete_query)
-    return True
+    data = db.deleteOrder(id)
+    return data
+    # delete_query= f"DELETE FROM orders WHERE order_id = {id}"
+    # db.runQuery(delete_query)
+    # return True
 
 def deleteAllOrders():
-    delete_all_query = f"DELETE FROM orders;"
-    db.runQuery(delete_all_query)
-    return True   
+    data = db.deleteAllOrders()
+    return data
+    # delete_all_query = f"DELETE FROM orders;"
+    # db.runQuery(delete_all_query)
+    # return True   
 
 def commitChanges():
     db.conn.commit()
