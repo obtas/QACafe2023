@@ -2,7 +2,7 @@
 # The DB file should also contain query functions that the Service file can use to read or modify the data
 
 import sqlite3 as sql
-conn = sql.connect("order_db")
+conn = sql.connect("test_db")
 cursor = conn.cursor()
 
 def setupTable():
@@ -20,7 +20,7 @@ def createOrder(customer_name, drink, size, extras, price):
     return True
 
 def viewAnOrder(id):
-    view_query= f"SELECT FROM orders WHERE order_id = {id}"
+    view_query= f"SELECT * FROM orders WHERE order_id = {id}"
     return runQuery(view_query)
 
 def viewAllOrders():
@@ -49,7 +49,7 @@ def commitChanges():
 # Uncomment this and run the file once to set up the DB
 # setupTable()
 
-commitChanges()
-print(viewAnOrder(2))
-print("-----------------------------------------")
-print(viewAllOrders())
+# commitChanges()
+# print(viewAnOrder(2))
+# print("-----------------------------------------")
+# print(viewAllOrders())

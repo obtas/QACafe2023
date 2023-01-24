@@ -47,7 +47,7 @@ def commitChanges():
     conn.commit()
 
 # Uncomment this and run the file once to set up the DB
-# setupTable()
+setupTable()
 
 commitChanges()
 print(viewAnOrder(2))
