@@ -47,10 +47,13 @@ def test_getOneOrder():
     # Assert
     result == test_data
     
-def test_getAllOrders():
+def test_getAllOrders(mocker):
     # Arrange
-    test_data = 
+    test_data = [(1, 'Abiodun', 'hot chocolate', 'medium', 0, 2.95), (2, 'Beth', 'mocha', 'medium', 0, 3.95), (3, 'Carl', 'latte', 'small', 0, 3.95), (4, 'Deyja', 'berrie smoothie', 'large', 0, 4.95), (5, 'Edie', 'americano', 'small', 0, 2.95), (6, 'Abiodun', 'hot chocolate', 'medium', 0, 2.95)]
+    mocker.patch("db.viewAllOrders", return_value = test_data)
     
     # Act
+    result = getAllOrders()
     
     # Assert
+    assert result == test_data
