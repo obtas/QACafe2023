@@ -34,12 +34,12 @@ def updateOrder(id, table_title, value):
     return True
 
 def deleteOrder(id):
-    delete_query= f"DELETE * FROM orders WHERE order_id = {id}"
+    delete_query= f"DELETE FROM orders WHERE order_id = {id}"
     db.runQuery(delete_query)
     return True
 
 def deleteAllOrders():
-    delete_all_query = f"DELETE * FROM orders;"
+    delete_all_query = f"DELETE FROM orders;"
     db.runQuery(delete_all_query)
     return True   
 
@@ -47,14 +47,14 @@ def commitChanges():
     db.conn.commit()
     
     
-print(getOneOrder(1))
-print("-----------------------------")
-# print(createOrder('satta', 'earl gray tea', 'small', 2, 2.50))
+# print(getOneOrder(1))
+# print("-----------------------------")
+# # print(createOrder('satta', 'earl gray tea', 'small', 2, 2.50))
+# # commitChanges()
+# print(getAllOrders())
+# print("-----------------------------")
+# print(updateOrder(6, "extras", 1))
+# print(getAllOrders())
 # commitChanges()
-print(getAllOrders())
-print("-----------------------------")
-print(updateOrder(6, "extras", 1))
-print(getAllOrders())
-commitChanges()
-print("------------------------------")
-print(getAllOrders())
+# print("------------------------------")
+# print(getAllOrders())

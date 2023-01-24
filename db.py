@@ -39,12 +39,12 @@ def updateOrder(id, table_title, value):
     return True
 
 def deleteOrder(id):
-    delete_query= f"DELETE * FROM orders WHERE order_id = {id}"
+    delete_query= f"DELETE FROM orders WHERE order_id = {id}"
     runQuery(delete_query)
     return True
 
 def deleteAllOrders():
-    delete_all_query = f"DELETE * FROM orders;"
+    delete_all_query = f"DELETE FROM orders;"
     runQuery(delete_all_query)
     return True
 
