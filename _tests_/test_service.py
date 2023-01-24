@@ -16,20 +16,41 @@
 #     assert result == expected
     
 #  ----------------------------------------------------------------------
-import controller
+from service import *
 
-def test_createAnOrder():
+def test_createAnOrder(mocker):
     # Arrange
-    customer_name = 'Zico'
-    drink = 'smoothie'
-    size = 'medium'
-    extras = 0
-    price = 2.95
-    result = None
-    expected = ({customer_name}, {drink}, {size}, {extras}, {price})
+    test_data = True
+    mocker.patch("db.createOrder", return_value = test_data)
+    # customer_name = 'Zico'
+    # drink = 'smoothie'
+    # size = 'medium'
+    # extras = 0
+    # price = 2.95
+    # result = None
+    # expected = ({customer_name}, {drink}, {size}, {extras}, {price})
     
     # Act
-    result = controller.createAnOrder(customer_name, drink, size, extras, price)
+    result = createOrder('Zico', 'smoothie', 'medium', 0, 2.95)
     
     # Assert
-    assert result == expected
+    assert result == True
+
+def test_getOneOrder():
+    # Arrange
+    test_id = 1
+    test_data = [('Abiodun', 'hot chocolate', 'medium', 0, 2.95)]
+    
+    # Act
+    result = getOneOrder(test_id)
+    
+    # Assert
+    result == test_data
+    
+def test_getAllOrders():
+    # Arrange
+    test_data = 
+    
+    # Act
+    
+    # Assert
