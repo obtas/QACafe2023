@@ -16,7 +16,7 @@
 #     assert result == expected
     
 #  ----------------------------------------------------------------------
-from service import *
+from service_file import *
 
 def test_createAnOrder(mocker):
     # Arrange
